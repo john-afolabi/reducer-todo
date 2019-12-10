@@ -34,4 +34,4 @@ function reducer(state, action) {
   }
 }
 
-export { initialState, reducer}
+export { initialState, reducer, ADD_TODO, TOGGLE_COMPLETED_FIELD, CLEAR_COMPLETED, INPUT_CHANGE}
