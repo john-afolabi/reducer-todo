@@ -1,16 +1,17 @@
 import React, { useReducer } from "react";
 import {
   initialState,
-  reducer,
-  ADD_TODO,
-  TOGGLE_COMPLETED_FIELD,
-  CLEAR_COMPLETED,
-  INPUT_CHANGE
+  reducer
 } from "./reducers/reducer";
 import TodoForm from "./components/TodoForm";
 
+const ADD_TODO = "ADD_TODO";
+const TOGGLE_COMPLETED_FIELD = "TOGGLE_COMPLETED_FIELD";
+const CLEAR_COMPLETED = "CLEAR_COMPLETED";
+const INPUT_CHANGE = "INPUT_CHANGE";
+
 function App() {
-  const [state, dispatch] = useReducer(initialState, reducer);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const addTodo = event => {
     event.preventDefault();
@@ -36,7 +37,11 @@ function App() {
 
   return (
     <div className="App">
-
+      <TodoForm
+        value={state.name}
+        onInputChange={onInputChange}
+        addTodo={addTodo}
+      />
     </div>
   );
 }

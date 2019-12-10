@@ -22,7 +22,7 @@ function reducer(state, action) {
         todos: [
           ...state.todos,
           { task: state.name, id: Date.now(), completed: false }
-        ], name = ""
+        ], name: ""
       };
     case TOGGLE_COMPLETED_FIELD:
       return { ...state, todos: action.payload };
@@ -34,4 +34,4 @@ function reducer(state, action) {
   }
 }
 
-export { initialState, reducer, ADD_TODO, TOGGLE_COMPLETED_FIELD, CLEAR_COMPLETED, INPUT_CHANGE}
+export { initialState, reducer }
