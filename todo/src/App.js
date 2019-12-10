@@ -1,9 +1,7 @@
 import React, { useReducer } from "react";
-import {
-  initialState,
-  reducer
-} from "./reducers/reducer";
+import { initialState, reducer } from "./reducers/reducer";
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
 const ADD_TODO = "ADD_TODO";
 const TOGGLE_COMPLETED_FIELD = "TOGGLE_COMPLETED_FIELD";
@@ -27,7 +25,7 @@ function App() {
 
   const clearCompleted = event => {
     event.preventDefault();
-    const newTodos = state.todo.filter(todo => !todo.completed);
+    const newTodos = state.todos.filter(todo => !todo.completed);
     dispatch({ type: CLEAR_COMPLETED, payload: newTodos });
   };
 
@@ -41,6 +39,11 @@ function App() {
         value={state.name}
         onInputChange={onInputChange}
         addTodo={addTodo}
+      />
+      <TodoList
+        todos={state.todos}
+        clearCompleted={clearCompleted}
+        toggleTodoCompleted={toggleTodoCompleted}
       />
     </div>
   );
